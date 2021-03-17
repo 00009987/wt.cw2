@@ -13,4 +13,6 @@ app.set('view engine', 'pug');
 
 app.get('/', (req, res) => res.render('index'));
 
+app.get('/compose', (req, res) => res.render('compose'));
+
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
