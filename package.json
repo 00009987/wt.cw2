@@ -11,5 +11,9 @@
 		"url": "https://github.com/00009987/wt.cw2"
 	},
 	"author": "00009987",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.17.1",
+		"pug": "^3.0.2"
+	}
 }
