@@ -64,7 +64,7 @@ body {
 	font-family: 'Source Sans Pro', sans-serif;
 	animation: opening 1s ease-in-out;
 	position: relative;
-	min-height: 100vh;
+	height: 100%;
 }
 
 body::-webkit-scrollbar {
@@ -140,28 +140,38 @@ nav h1 {
 	opacity: 1;
 }
 
+.nav-items img {
+	cursor: pointer;
+}
+
 /* ===== Home Main Section ===== */
 
 .home-main {
 	min-height: 70vh;
-	width: 90%;
-	margin: 4rem auto 0;
+	width: 100%;
 	color: #000;
+	text-align: center;
+}
+
+.home-main section {
+	width: 90%;
+	margin: auto;
 }
 
 .home-main h2 {
-	padding: 3rem 0;
+	padding: 2rem 0;
 	font-size: 6rem;
 }
 
 .home-main p {
 	font-size: 2.5rem;
 	color: rgba(0, 0, 0, 0.8);
+	padding: 0 0 3rem;
 }
 
 .btn-links {
 	width: 30%;
-	margin: auto;
+	margin: 2rem auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -199,7 +209,7 @@ footer {
 	min-height: 10vh;
 	text-align: center;
 	align-items: baseline;
-	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 footer p {
