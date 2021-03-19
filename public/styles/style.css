@@ -316,3 +316,41 @@ footer a {
 .post-container a {
 	display: block;
 }
+
+/* ===== Single Post Page ===== */
+.single-post-main {
+	width: 75%;
+	margin: auto;
+	height: 100%;
+}
+
+.single-post-section {
+	width: 100%;
+	margin: 7rem auto;
+}
+
+.single-post-section h3 {
+	font-size: var(--big);
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+}
+
+.single-post-section .author {
+	font-size: var(--header1);
+	margin-bottom: 0.3rem;
+}
+
+.single-post-section .date {
+	font-size: 1.8rem;
+}
+
+.single-post-section div {
+	margin-bottom: 2rem;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.post {
+	font-size: 2.4rem;
+	line-height: 1.5;
+	text-align: justify;
+}

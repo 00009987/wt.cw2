@@ -8,4 +8,5 @@ block content
                 p.author by #{post.author}
                 p.date created on #{post.date}
                 p.desc= post.description
-                a(href='#') Go to post
+
+                a(href='/posts/post_' + post.id) Go to post 

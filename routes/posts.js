@@ -13,4 +13,21 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.get('/post_:id', (req, res) => {
+	let db = [];
+
+	fs.readFile(
+		path.join(__dirname, '..', '/database/db.json'),
+		'utf-8',
+		(err, data) => {
+			if (err) console.log(err);
+			else db = JSON.parse(data);
+
+			let post = db.filter((post) => post.id === req.params.id)[0];
+
+			res.render('post', { post });
+		},
+	);
+});
+
 module.exports = router;
