@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', (req, res) => res.render('compose'));
 
 router.post('/', (req, res) => {
-	const blogId = require('../actions/generateID');
+	const blogId = require('../actions/generateID')();
 	const currentDate = require('../actions/getCurrentDate');
 
 	const blog = {
@@ -20,7 +20,6 @@ router.post('/', (req, res) => {
 	const savePost = require('../actions/savePost');
 	savePost(blog);
 
-	console.log(blog);
 	res.redirect('/compose');
 });
 module.exports = router;
