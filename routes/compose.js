@@ -5,19 +5,22 @@ const router = express.Router();
 router.get('/', (req, res) => res.render('compose'));
 
 router.post('/', (req, res) => {
-	let db = require('../actions/getData');
+	const blogId = require('../actions/generateID');
+	const currentDate = require('../actions/getCurrentDate');
 
 	const blog = {
+		id: blogId,
 		title: req.body.title,
 		description: req.body.description,
 		author: req.body.author,
 		post: req.body.post,
+		date: currentDate,
 	};
-	db.push(blog);
 
-	const writeData = require('../actions/writeData');
-	writeData(db);
+	const savePost = require('../actions/savePost');
+	savePost(blog);
 
+	console.log(blog);
 	res.redirect('/compose');
 });
 module.exports = router;
