@@ -1,0 +1,11 @@
+extends layout.pug
+
+block content
+    main.posts-main
+        each post in posts 
+            .post-container
+                h3= post.title
+                p.author by #{post.author}
+                p.date created on #{post.date}
+                p.desc= post.description
+                a(href='#') Go to post
