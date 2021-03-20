@@ -68,7 +68,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-	width: 0.6rem;
+	width: 0.8rem;
 }
 
 body::-webkit-scrollbar-track {
@@ -353,4 +353,37 @@ footer a {
 	font-size: 2.4rem;
 	line-height: 1.5;
 	text-align: justify;
+}
+
+.controls {
+	display: flex;
+	justify-content: flex-end;
+	align-items: baseline;
+	margin: 4rem auto 1rem;
+}
+
+.controls a {
+	margin-left: 2rem;
+	font-size: 2rem;
+	padding: 1rem 3rem;
+	border-radius: 2rem;
+	transition: all 0.3s ease-in-out;
+}
+
+.controls .edit {
+	border: 1.5px solid #013220;
+}
+
+.controls .edit:hover {
+	background: #013220;
+	color: #fff;
+}
+
+.controls .delete {
+	border: 1.5px solid #d11a2a;
+}
+
+.controls .delete:hover {
+	background: #d11a2a;
+	color: #fff;
 }

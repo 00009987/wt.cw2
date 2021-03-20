@@ -8,3 +8,6 @@ block content
                 p.author= post.author
                 p.date Created on #{post.date}
             p.post= post.post
+            .controls
+                a.edit(href='/posts/post_' + post.id + '/edit' ) Edit
+                a.delete(href='/posts/post_' + post.id + '/delete') Delete
