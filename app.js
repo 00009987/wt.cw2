@@ -19,5 +19,6 @@ app.set('view engine', 'pug');
 app.use('/', require('./routes/index'));
 app.use('/compose', require('./routes/compose'));
 app.use('/posts', require('./routes/posts'));
+app.use('/about', require('./routes/about'));
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

@@ -387,3 +387,40 @@ footer a {
 	background: #d11a2a;
 	color: #fff;
 }
+
+/* ===== About Page ===== */
+.about-main {
+	width: 80%;
+	margin: 4rem auto;
+}
+
+.about-main h2,
+.about-main p {
+	margin-bottom: 4rem;
+}
+
+.warning {
+	line-height: 1.5;
+}
+
+.warning {
+	font-size: 2.8rem;
+}
+
+.warning span {
+	font-weight: bold;
+}
+
+.about-link,
+.about-link a {
+	color: rgba(0, 0, 0, 0.7);
+	transition: color 0.3s ease-in-out;
+}
+
+.about-link a {
+	text-decoration: underline;
+}
+
+.about-link a:hover {
+	color: #000;
+}
