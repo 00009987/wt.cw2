@@ -6,7 +6,7 @@ block content
             .post-container
                 h3= post.title
                 p.author by #{post.author}
-                p.date created on #{post.date}
+                p.date= post.date
                 p.desc= post.description
 
                 a(href='/posts/post_' + post.id) Go to post 
