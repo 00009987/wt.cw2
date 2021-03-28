@@ -3,11 +3,11 @@ extends layout.pug
 block content
     form.flex.compose-form(method='POST')
         label(for='title') Title
-        input#title(type='text' name='title' autocomplete='off' required)
+        input#title(type='text' name='title' autocomplete='off' required  minlength='5')
         label(for='description') Description
-        input#description(type='text' name='description' autocomplete='off' required)
+        input#description(type='text' name='description' autocomplete='off' required minlength='20' maxlength='125')
         label(for='author') Author
-        input#author(type='text' name='author' autocomplete='off' required)
+        input#author(type='text' name='author' autocomplete='off' required minlength='5')
         label(for='post') Post
-        textarea#post(name='post' cols='30' rows='5' required)
+        textarea#post(name='post' cols='30' rows='5' required )
         button(type='submit') Publish
