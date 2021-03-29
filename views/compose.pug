@@ -1,6 +1,13 @@
 extends layout.pug 
 
 block content
+    .popup 
+        if error 
+            p.error Something went wrong. Please try again.
+
+        if success 
+            p.success Post has been successfully published
+
     form.flex.compose-form(method='POST')
         label(for='title') Title
         input#title(type='text' name='title' autocomplete='off' required  minlength='5')

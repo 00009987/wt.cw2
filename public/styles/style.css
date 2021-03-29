@@ -237,7 +237,8 @@ footer a {
 
 /* ===== Compose Page ===== */
 
-.compose-form {
+.compose-form,
+.popup {
 	width: 50%;
 	margin: 0 auto;
 	padding: 2rem 0;
@@ -267,6 +268,21 @@ footer a {
 	border: 1px solid #000;
 	border-radius: 1rem;
 	background: none;
+}
+
+.popup {
+	padding: 1rem 0;
+}
+
+.error {
+	border-bottom: 1px solid #d11a2a;
+	color: #d11a2a;
+}
+
+.success {
+	border-bottom: 1px solid #013220;
+	color: #013220;
+	line-height: 1.5;
 }
 
 /* ===== Posts Page ===== */
@@ -492,6 +508,11 @@ body.dark-mode label {
 .dark-mode .compose-form textarea:focus {
 	border-color: var(--darkmodeLink);
 	outline: none;
+}
+
+.dark-mode .success {
+	border-bottom: 1px solid #307797;
+	color: #307797;
 }
 
 /* Posts Page */

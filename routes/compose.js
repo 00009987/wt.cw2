@@ -14,10 +14,20 @@ router.post('/', (req, res) => {
 		post: req.body.post,
 	};
 
-	postManager.create(blog, (err) => {
-		if (err) throw err;
-	});
+	if (
+		blog.title.trim() === '' ||
+		blog.description.trim() === '' ||
+		blog.author.trim() === '' ||
+		blog.post.trim() === ''
+	) {
+		res.render('compose', { error: true });
+	} else {
+		postManager.create(blog, (err) => {
+			if (err) throw err;
+		});
 
-	res.redirect('/compose');
+		res.render('compose', { success: true });
+	}
 });
+
 module.exports = router;
