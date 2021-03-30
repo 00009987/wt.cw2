@@ -1,12 +1,19 @@
 extends layout.pug
 
 block content
-    main.posts-main
-        each post in posts 
-            .post-container
-                h3= post.title
-                p.author by #{post.author}
-                p.date= post.date
-                p.desc= post.description
+    if empty 
+        p.empty 
+            | There are no posts yet. Please visit 
+            a(href="/compose") here 
+            | to write one.
+    
+    else 
+        main.posts-main
+            each post in posts 
+                .post-container
+                    h3= post.title
+                    p.author by #{post.author}
+                    p.date= post.date
+                    p.desc= post.description
 
-                a(href='/posts/post_' + post.id) Go to post 
+                    a(href='/posts/post_' + post.id) Go to post 

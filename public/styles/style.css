@@ -338,6 +338,20 @@ footer a {
 	display: block;
 }
 
+.empty,
+.empty a {
+	font-size: var(--header2);
+	font-weight: bold;
+	opacity: 0.6;
+	width: 60%;
+	margin: 15rem auto;
+	text-align: center;
+}
+
+.empty a {
+	text-decoration: underline;
+}
+
 /* ===== Single Post Page ===== */
 .single-post-main {
 	width: 75%;

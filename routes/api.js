@@ -5,8 +5,7 @@ const PostManager = require('../actions/postManager');
 const postManager = new PostManager();
 
 router.get('/v1/posts', (req, res) => {
-	const posts = postManager.getAll();
-	res.json(posts);
+	postManager.getAll((posts) => res.json(posts));
 });
 
 module.exports = router;

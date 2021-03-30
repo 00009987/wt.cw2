@@ -1,38 +1,51 @@
 const express = require('express');
 const router = express.Router();
+
+const fs = require('fs');
+const path = require('path');
+
 const PostManager = require('../actions/postManager');
-const postManager = new PostManager();
+let postManager = new PostManager();
 
+// getting all the posts
 router.get('/', (req, res) => {
-	const posts = postManager.getAll();
-
-	// rendering posts page
-	res.render('posts', { posts });
-});
-
-router.get('/post_:id', (req, res) => {
-	const post = postManager.getById(req.params.id);
-
-	// rendering a single post page
-	res.render('post', { post });
-});
-
-router.get('/post_:id/delete', (req, res) => {
-	postManager.delete(req.params.id, (err) => {
-		if (err) throw err;
+	postManager.getAll((posts) => {
+		if (posts.length === 0) {
+			res.render('posts', { empty: true });
+		} else {
+			res.render('posts', { posts });
+		}
 	});
+});
 
-	res.redirect('/posts');
+// getting a single post
+router.get('/post_:id', (req, res) => {
+	postManager.getById(
+		req.params.id,
+		(post) => res.render('post', { post }),
+		() => res.sendStatus(404),
+	);
+});
+
+// deleting a post
+router.get('/post_:id/delete', (req, res) => {
+	postManager.delete(
+		req.params.id,
+		() => res.redirect('/posts'),
+		() => res.sendStatus(500),
+	);
 });
 
 router.get('/post_:id/edit', (req, res) => {
-	let post = postManager.getById(req.params.id);
-
-	res.render('edit', { post });
+	postManager.getById(
+		req.params.id,
+		(post) => res.render('edit', { post }),
+		() => res.sendStatus(404),
+	);
 });
 
 router.post('/post_:id/edit', (req, res) => {
-	const blog = {
+	let blog = {
 		id: req.params.id,
 		title: req.body.title,
 		description: req.body.description,
@@ -40,11 +53,7 @@ router.post('/post_:id/edit', (req, res) => {
 		post: req.body.post,
 	};
 
-	postManager.edit(req.params.id, blog, (err) => {
-		if (err) throw err;
-	});
-
-	res.redirect('/posts');
+	postManager.edit(req.params.id, blog, () => res.redirect('/posts'));
 });
 
 module.exports = router;

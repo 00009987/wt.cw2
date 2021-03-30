@@ -22,11 +22,7 @@ router.post('/', (req, res) => {
 	) {
 		res.render('compose', { error: true });
 	} else {
-		postManager.create(blog, (err) => {
-			if (err) throw err;
-		});
-
-		res.render('compose', { success: true });
+		postManager.create(blog, () => res.render('compose', { success: true }));
 	}
 });
 

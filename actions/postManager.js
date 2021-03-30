@@ -1,20 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const DbPath = path.join(__dirname, '..', '/database/db.json');
 
 class PostManager {
-	constructor() {
-		this.posts = [];
-		this.DbPath = path.join(__dirname, '..', '/database/db.json');
-
-		fs.readFile(this.DbPath, (err, data) => {
-			if (err) {
-				console.error('could not read posts data from database/db.json file.');
-			} else {
-				this.posts = JSON.parse(data);
-			}
-		});
-	}
-
 	generateId() {
 		return Math.random().toString().slice(3, 9);
 	}
@@ -31,38 +19,77 @@ class PostManager {
 		return currentDate.toLocaleDateString('en', options);
 	}
 
-	updateDb(callback) {
-		fs.writeFile(this.DbPath, JSON.stringify(this.posts), callback);
-	}
-
 	create(post, callback) {
-		post.id = this.generateId();
-		post.date = this.getDate();
-		this.posts.push(post);
+		fs.readFile(DbPath, (err, data) => {
+			if (err) throw err;
 
-		this.updateDb(callback);
+			let posts = JSON.parse(data);
+			post.id = this.generateId();
+			post.date = this.getDate();
+			posts.push(post);
+
+			fs.writeFile(DbPath, JSON.stringify(posts), (err) => {
+				if (err) throw err;
+
+				callback();
+			});
+		});
 	}
 
-	getAll() {
-		return this.posts;
+	getAll(callback) {
+		fs.readFile(DbPath, (err, data) => {
+			if (err) {
+				console.error('could not read posts data from database/db.json file.');
+			} else {
+				let posts = JSON.parse(data);
+				callback(posts);
+			}
+		});
 	}
 
-	getById(id) {
-		return this.posts.filter((post) => post.id === id)[0];
+	getById(id, callback, error) {
+		fs.readFile(DbPath, (err, data) => {
+			if (err) error();
+
+			let posts = JSON.parse(data);
+			let post = posts.filter((post) => post.id === id)[0];
+			callback(post);
+		});
 	}
 
 	edit(id, post, callback) {
-		const index = this.posts.findIndex((post) => post.id === id);
-		post.date = this.getDate();
-		this.posts[index] = post;
+		fs.readFile(DbPath, (err, data) => {
+			if (err) throw err;
 
-		this.updateDb(callback);
+			let posts = JSON.parse(data);
+			let index = posts.findIndex((post) => post.id === id);
+			post.date = this.getDate();
+			posts[index] = post;
+
+			fs.writeFile(DbPath, JSON.stringify(posts), (err) => {
+				if (err) throw err;
+
+				callback();
+			});
+		});
 	}
 
-	delete(id, callback) {
-		const index = this.posts.findIndex((post) => post.id === id);
-		this.posts.splice(index, 1);
-		this.updateDb(callback);
+	delete(id, callback, error) {
+		fs.readFile(DbPath, (err, data) => {
+			if (err) {
+				error();
+			} else {
+				let posts = JSON.parse(data);
+				let index = posts.findIndex((post) => post.id === id);
+				posts.splice(index, 1);
+
+				fs.writeFile(DbPath, JSON.stringify(posts), (err) => {
+					if (err) error();
+
+					callback();
+				});
+			}
+		});
 	}
 }
 
