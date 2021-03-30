@@ -280,8 +280,8 @@ footer a {
 }
 
 .success {
-	border-bottom: 1px solid #013220;
-	color: #013220;
+	border-bottom: 1px solid green;
+	color: green;
 	line-height: 1.5;
 }
 
@@ -346,10 +346,15 @@ footer a {
 	width: 60%;
 	margin: 15rem auto;
 	text-align: center;
+	transition: color 0.3s ease-in-out;
 }
 
 .empty a {
 	text-decoration: underline;
+}
+
+.empty a:hover {
+	opacity: 1;
 }
 
 /* ===== Single Post Page ===== */
@@ -436,10 +441,8 @@ footer a {
 
 .warning {
 	line-height: 1.5;
-}
-
-.warning {
 	font-size: 2.8rem;
+	color: rgba(0, 0, 0, 0.7);
 }
 
 .warning span {
@@ -448,7 +451,7 @@ footer a {
 
 .about-link,
 .about-link a {
-	color: rgba(0, 0, 0, 0.7);
+	color: rgba(0, 0, 0, 1);
 	transition: color 0.3s ease-in-out;
 }
 
@@ -511,7 +514,6 @@ body.dark-mode label {
 }
 
 /* Compose Page */
-
 .dark-mode .compose-form input,
 .dark-mode .compose-form textarea {
 	border: 1px solid var(--darkmodeColor);
@@ -530,7 +532,6 @@ body.dark-mode label {
 }
 
 /* Posts Page */
-
 .dark-mode .post-container a:hover,
 .dark-mode .compose-form button:hover {
 	background-color: var(--darkmodeLink);
@@ -554,4 +555,234 @@ body.dark-mode label {
 
 .dark-mode .controls .edit:hover {
 	background: var(--darkmodeLink);
+}
+
+/* =========================== */
+/* ===== Responsiveness ===== */
+/* =========================== */
+
+@media screen and (max-width: 1500px) {
+	:root {
+		--header1: 3rem;
+		--header2: 5rem;
+		--header3: 4.5rem;
+		--header4: 3rem;
+		--text: 3rem;
+		--big: 8rem;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.btn-links {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	/*== Navigation ==*/
+	nav {
+		width: 98%;
+	}
+
+	#logo {
+		font-size: 3.6rem;
+	}
+
+	.nav-link {
+		font-size: 1.9rem;
+	}
+
+	/*== Home Main ==*/
+	.home-main section {
+		width: 100%;
+	}
+
+	.home-main h2 {
+		font-size: 7rem;
+	}
+
+	.home-main p {
+		font-size: 2rem;
+	}
+
+	footer p {
+		padding: 1.5rem 0;
+		width: 95%;
+	}
+
+	footer p,
+	footer a {
+		font-size: 1.7rem;
+	}
+
+	/* == Compose Page == */
+
+	.compose-form,
+	.popup {
+		width: 80%;
+	}
+
+	.popup p {
+		font-size: 2rem;
+	}
+
+	/* == Posts Page == */
+	.empty,
+	.empty a {
+		width: 90%;
+	}
+
+	/* == Single Post Page == */
+	.single-post-main {
+		width: 90%;
+	}
+
+	.single-post-section h3 {
+		font-size: 6rem;
+	}
+
+	.single-post-section div {
+		margin: 3rem 0;
+	}
+
+	.post {
+		font-size: 2.3rem;
+	}
+
+	.controls a {
+		font-size: 1.8rem;
+	}
+
+	/* == About Page == */
+	.about-main {
+		width: 90%;
+	}
+
+	.about-main h2,
+	.about-main p {
+		margin-bottom: 3rem;
+	}
+
+	.warning,
+	.about-link,
+	.about-link a {
+		font-size: 2.4rem;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.btn-links {
+		width: 60%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	/*== Navigation ==*/
+	.main-header {
+		margin-bottom: 1rem;
+	}
+
+	nav {
+		display: block;
+		width: 90%;
+	}
+
+	nav h1 {
+		text-align: center;
+		padding: 1rem 0;
+	}
+
+	#logo {
+		font-size: 4rem;
+	}
+
+	.nav-link {
+		font-size: 2.1rem;
+	}
+
+	/*== Home Main ==*/
+	.home-main h2 {
+		font-size: 5rem;
+	}
+
+	.home-main p {
+		font-size: 1.8rem;
+	}
+
+	.btn-links {
+		width: 70%;
+	}
+
+	footer p {
+		width: 97%;
+	}
+
+	footer p,
+	footer a {
+		font-size: 1.5rem;
+	}
+
+	/* == Compose Page == */
+
+	.compose-form,
+	.popup {
+		width: 90%;
+	}
+
+	.compose-form label {
+		font-size: 2.5rem;
+	}
+
+	.popup {
+		padding: 3rem 0 2rem;
+	}
+
+	/* == Posts Page == */
+	.empty,
+	.empty a {
+		width: 98%;
+		font-size: 4rem;
+	}
+
+	/* == Single Post Page == */
+	.single-post-main {
+		width: 95%;
+	}
+
+	.single-post-section h3 {
+		font-size: 5.5rem;
+	}
+
+	/* == About Page == */
+	.about-main {
+		width: 95%;
+	}
+
+	.about-main h2 {
+		font-size: 3.5rem;
+	}
+
+	.warning,
+	.about-link,
+	.about-link a {
+		font-size: 2.1rem;
+	}
+}
+
+@media screen and (max-width: 410px) {
+	.btn-links {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.btn-links {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 315px) {
+	.btn-links {
+		width: 100%;
+	}
 }
