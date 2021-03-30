@@ -14,8 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
 modeChanger.addEventListener('click', () => {
 	// adding the dark mode class to the body
 	body.classList.toggle('dark-mode');
+
 	// saving change to the local storage
-	localStorage.setItem('themes', JSON.stringify(['dark-mode']));
+	let themes = checkStorage();
+	if (themes.length === 0) {
+		themes.push('dark-mode');
+	} else {
+		themes.length = 0;
+	}
+	localStorage.setItem('themes', JSON.stringify(themes));
 });
 
 // Functions
