@@ -42,5 +42,5 @@ npm run dev
 
 ### Web application repository on github
 
-[link to that github repo](https://github.com/00009987/wt.cw2.git)
-[link to the website on glitch](http://glitter-pouncing-fedora.glitch.me)
+- [link to that github repo](https://github.com/00009987/wt.cw2.git)  
+- [link to the website on glitch](http://glitter-pouncing-fedora.glitch.me)
