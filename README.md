@@ -36,9 +36,11 @@ npm run dev
 - pug.js
 
 ### Additional features
+
 - light and dark mode
 - responsive
 
 ### Web application repository on github
 
 [link to that github repo](https://github.com/00009987/wt.cw2.git)
+[link to the website on glitch](http://glitter-pouncing-fedora.glitch.me)
