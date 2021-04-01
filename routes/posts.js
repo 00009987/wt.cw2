@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const fs = require('fs');
-const path = require('path');
-
 const PostManager = require('../actions/postManager');
 let postManager = new PostManager();
 
@@ -11,8 +8,10 @@ let postManager = new PostManager();
 router.get('/', (req, res) => {
 	postManager.getAll((posts) => {
 		if (posts.length === 0) {
+			// if the db is empty, showing a corresponding message
 			res.render('posts', { empty: true });
 		} else {
+			// showing the posts
 			res.render('posts', { posts });
 		}
 	});
@@ -36,6 +35,7 @@ router.get('/post_:id/delete', (req, res) => {
 	);
 });
 
+// rendering edit page
 router.get('/post_:id/edit', (req, res) => {
 	postManager.getById(
 		req.params.id,
@@ -45,6 +45,7 @@ router.get('/post_:id/edit', (req, res) => {
 });
 
 router.post('/post_:id/edit', (req, res) => {
+	// setting new parameters of the post
 	let blog = {
 		id: req.params.id,
 		title: req.body.title,
@@ -53,10 +54,8 @@ router.post('/post_:id/edit', (req, res) => {
 		post: req.body.post,
 	};
 
+	// updating the selected post
 	postManager.edit(req.params.id, blog, () => res.redirect('/posts'));
 });
 
 module.exports = router;
-
-// random post - icon button
-// search & sort
