@@ -289,7 +289,7 @@ footer a {
 
 .posts-main {
 	width: 90%;
-	margin: 6rem auto;
+	margin: 3rem auto;
 	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -355,6 +355,16 @@ footer a {
 
 .empty a:hover {
 	opacity: 1;
+}
+
+.search-bar {
+	padding: 0;
+}
+
+.errMsg {
+	text-align: center;
+	opacity: 0.8;
+	font-weight: bold;
 }
 
 /* ===== Single Post Page ===== */

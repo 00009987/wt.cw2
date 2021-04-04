@@ -8,6 +8,9 @@ block content
             | to write one.
     
     else 
+        div.flex.compose-form.search-bar                
+            input#title(type='text' name='search-title' autocomplete='off' required placeholder="Type a title to search...")                
+            button.search-btn Search
         main.posts-main
             each post in posts 
                 .post-container
@@ -17,3 +20,5 @@ block content
                     p.desc= post.description
 
                     a(href='/posts/post_' + post.id) Go to post 
+        
+        script(src='/static/scripts/Search.js')
