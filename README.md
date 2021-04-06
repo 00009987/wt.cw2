@@ -1,46 +1,37 @@
-# Blog Web Application
+# **Bloggy Web Application Documentation**
 
-### This web application allows users to create, edit, delete posts.
+### This application allows users to create, edit, delete posts.
 
-To run the application locally you should follow the steps indicated below:
+**To run the application locally you should follow the steps indicated below:**
 
-1. Clone this repository
+1. Clone this repository on your machine
 
 ```bash
 git clone https://github.com/00009987/wt.cw2.git
 ```
 
-2. Install dependencies
+2. Install applicantion dependencies
 
 ```bash
 cd [project folder]
 npm install
 ```
 
-3. Run application
+3. Run the application
+Type one of the followings: `node app` or `npm run dev`
 
-```bash
-node app
-```
-
-or
-
-```bash
-npm run dev
-```
-
-### Web application dependencies
+### **Web application dependencies**
 
 - body-parser.js
 - express.js
 - pug.js
 
-### Additional features
+### **Additional features**
 
-- light and dark mode
-- responsive
+- light and dark modes
+- responsive design
 
-### Web application repository on github
+### **Links to GitHub and Glitch:**
 
-- [link to that github repo](https://github.com/00009987/wt.cw2.git)  
+- [link to that github repo](https://github.com/00009987/wt.cw2.git)
 - [link to the website on glitch](http://glitter-pouncing-fedora.glitch.me)
