@@ -18,7 +18,7 @@ npm install
 ```
 
 3. Run the application
-Type one of the followings: `node app` or `npm run dev`
+`node app` or `npm run dev`
 
 ### **Web application dependencies**
 
